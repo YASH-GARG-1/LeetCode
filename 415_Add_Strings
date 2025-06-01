@@ -1,0 +1,17 @@
+class Solution {
+    public String addStrings(String finalStr, String temp) {
+        int len1 = num1.length() - 1;
+        int len2 = num2.length() - 1;
+        int carry = 0;
+        StringBuilder st = new StringBuilder();
+        while(len1 > -1 || len2 > -1 || carry > 0)
+        {
+            int digit1 = len1 > -1 ? num1.charAt(len1--) - '0' : 0;
+            int digit2 = len2 > -1 ? num2.charAt(len2--) - '0' : 0;
+            int total = digit1 + digit2 + carry;
+            st.append(total % 10);
+            carry = total / 10;
+        }
+        return st.reverse().toString();
+  }
+}
